@@ -1,27 +1,35 @@
-// ColorChangerApp.js
 import React, { useState } from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 
 export default function ColorChangerApp() {
-  const [bg, setBg] = useState('#ffffff'); // default white
+  const [bgColor, setBgColor] = useState('#ffffff'); // Default white
 
   return (
-    <View style={[styles.container, { backgroundColor: bg }]}>
+    <View style={[styles.container, { backgroundColor: bgColor }]}>
       <Text style={styles.title}>Color Changer App</Text>
-
-      <View style={styles.row}>
-        <Button title="White" onPress={() => setBg('#ffffff')} />
-        <View style={{ width: 12 }} />
-        <Button title="Light Blue" onPress={() => setBg('#dbeafe')} />
-        <View style={{ width: 12 }} />
-        <Button title="Light Green" onPress={() => setBg('#dcfce7')} />
+      <View style={styles.buttonGroup}>
+        <Button title="White" onPress={() => setBgColor('#ffffff')} />
+        <Button title="Light Blue" onPress={() => setBgColor('#add8e6')} />
+        <Button title="Light Green" onPress={() => setBgColor('#90ee90')} />
       </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 24 },
-  title: { fontSize: 24, fontWeight: '700', marginBottom: 16 },
-  row: { flexDirection: 'row' },
-});
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 20,
+  },
+  title: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    marginBottom: 15,
+  },
+  buttonGroup: {
+    gap: 10,
+  },
+}
+);
